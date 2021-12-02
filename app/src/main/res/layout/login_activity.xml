@@ -19,14 +19,14 @@
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="200dp"
-        android:layout_height="20dp"
+        android:layout_height="25dp"
         android:background="@color/black"
+        android:drawableLeft="@drawable/ic_action_user"
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textSize="16dp"
-        android:drawableLeft="@drawable/ic_action_user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -38,13 +38,13 @@
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="200dp"
-        android:layout_height="20dp"
+        android:layout_height="25dp"
         android:background="@color/black"
+        android:drawableLeft="@drawable/ic_action_pass"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
         android:textSize="16dp"
-        android:drawableLeft="@drawable/ic_action_pass"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -52,4 +52,43 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintVertical_bias="0.132"
         tools:ignore="TouchTargetSizeCheck" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="@color/golden_yellow"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintVertical_bias="0.377">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Login"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register Here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.333" />
 </androidx.constraintlayout.widget.ConstraintLayout>
