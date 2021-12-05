@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/applogo" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/login_username"
         android:layout_width="200dp"
         android:layout_height="25dp"
         android:background="@color/black"
@@ -36,7 +36,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/login_pass"
         android:layout_width="200dp"
         android:layout_height="25dp"
         android:background="@color/black"
@@ -49,12 +49,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/login_username"
         app:layout_constraintVertical_bias="0.132"
         tools:ignore="TouchTargetSizeCheck" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/login_card"
         android:layout_width="300dp"
         android:layout_height="50dp"
         app:cardBackgroundColor="@color/golden_yellow"
@@ -63,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/login_pass"
         app:layout_constraintVertical_bias="0.377">
 
         <RelativeLayout
@@ -82,13 +82,13 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/register_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register Here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/login_card"
         app:layout_constraintVertical_bias="0.333" />
 </androidx.constraintlayout.widget.ConstraintLayout>
