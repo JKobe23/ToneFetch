@@ -57,6 +57,7 @@
         android:id="@+id/login_card"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:onClick="UserLogin"
         app:cardBackgroundColor="@color/golden_yellow"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"

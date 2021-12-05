@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "498241639769",
+    "firebase_url": "https://tonefetch-default-rtdb.firebaseio.com",
+    "project_id": "tonefetch",
+    "storage_bucket": "tonefetch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498241639769:android:3221b7e514e4789cfaa848",
+        "android_client_info": {
+          "package_name": "com.lau.kobstonefetch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498241639769-in4lbckf7ats5trd91et72arbs03k2vk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmHUnVSAQq6Cw9EnFkskbJCeCnO68MxJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498241639769-in4lbckf7ats5trd91et72arbs03k2vk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
