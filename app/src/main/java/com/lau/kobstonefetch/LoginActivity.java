@@ -56,19 +56,24 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(snapshot.hasChild(userTxt)) {
 
-                        String password_entry = snapshot.child(userTxt).child("password").getValue(String.class);
-                        String hashed_entry = encryptPass(password_entry);
-                        String stored_hash = encryptPass(passTxt);
-                        if (hashed_entry.equals(stored_hash)) Toast.makeText(LoginActivity.this, "Login successful.",Toast.LENGTH_SHORT).show();
+                        String stored  = snapshot.child(userTxt).child("password").getValue(String.class);
+                        String hash_entry = encryptPass(passTxt);
+
+                        if (hash_entry.equals(stored)) {
+                            Toast.makeText(LoginActivity.this, "Login successful.",Toast.LENGTH_SHORT).show();
+
+                            Intent i1 = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(i1);
+                            finish();
+                        }
+
                         else Toast.makeText(LoginActivity.this, "Wrong password, try again.",Toast.LENGTH_SHORT).show();
                     }
                     else Toast.makeText(LoginActivity.this, "Invalid username", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
+                public void onCancelled(@NonNull DatabaseError error) {}
             });
 
         }
