@@ -3,9 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/button_layout.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/edit_text_layout.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/gradient.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/ic_album_black_24dp.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/ic_baseline_add_photo_alternate_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/ic_baseline_library_music_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/ic_baseline_photo_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/ic_exit_to_app_24dp.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/ic_music_note_24dp.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/ic_queue_music_black_24dp.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.2203125" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/layout/fragment_dashboard.xml" value="0.12771739130434784" />
+        <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/layout/login_activity.xml" value="0.18" />
         <entry key="..\:/Users/bo-oy/AndroidStudioProjects/ToneFetch/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
       </map>
