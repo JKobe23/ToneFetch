@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -35,6 +36,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     DatabaseReference dbr = FirebaseDatabase.getInstance().getReferenceFromUrl("https://tonefetch-default-rtdb.firebaseio.com/");
+    FirebaseStorage str = FirebaseStorage.getInstance("gs://tonefetch.appspot.com/");
     private boolean checkPermission = false;
     ProgressDialog progressDialog;
     ListView listView;
