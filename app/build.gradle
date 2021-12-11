@@ -42,6 +42,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-storage'
     implementation 'com.github.jeancsanchez:JcPlayer:2.6.16'
     implementation 'com.squareup.picasso:picasso:2.8'
     implementation 'com.karumi:dexter:6.2.1'

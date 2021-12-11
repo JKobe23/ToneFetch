@@ -3,6 +3,8 @@ package com.lau.kobstonefetch;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.annotation.NonNull;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +34,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    DatabaseReference dbr = FirebaseDatabase.getInstance().getReferenceFromUrl("https://tonefetch-default-rtdb.firebaseio.com/");
     private boolean checkPermission = false;
     ProgressDialog progressDialog;
     ListView listView;
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         jcAudios = new ArrayList<>();
         thumbnail = new ArrayList<>();
         jcPlayerView = findViewById(R.id.jcplayer);
+        retrieveSongs();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -87,6 +91,45 @@ public class MainActivity extends AppCompatActivity {
                 jcPlayerView.setVisibility(View.VISIBLE);
                 jcPlayerView.createNotification();
                 adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    public void retrieveSongs() {
+
+        dbr.child("songs").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+
+                    String name = ds.child("Name").getValue(String.class);
+                    //Log.i("songname",name);
+                    String artist = ds.child("Artist").getValue(String.class);
+                    //Log.i("deejay", artist);
+                    String duration = ds.child("Duration").getValue(String.class);
+                    //Log.i("timetaken", duration);
+                    String songurl = ds.child("SongURL").getValue(String.class);
+                    //Log.i("link", songurl);
+                    String imageurl = ds.child("ImageURL").getValue(String.class);
+                    //Log.i("pic", imageurl);
+
+                    songsNameList.add(name);
+                    songsUrlList.add(songurl);
+                    songsArtistList.add(artist);
+                    songsDurationList.add(duration);
+                    thumbnail.add(imageurl);
+
+                    jcAudios.add(JcAudio.createFromURL(name, songurl));
+                }
+                adapter = new ListAdapter(getApplicationContext(), songsNameList, thumbnail, songsArtistList, songsDurationList);
+                jcPlayerView.initPlaylist(jcAudios, null);
+                listView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+                progressDialog.dismiss();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "FAILED!", Toast.LENGTH_SHORT).show();
             }
         });
     }

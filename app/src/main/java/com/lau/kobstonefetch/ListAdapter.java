@@ -14,13 +14,14 @@ import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import androidx.cardview.widget.CardView;
 import java.util.List;
 
-public class ListAdapter extends BaseAdapter{
+public class ListAdapter extends BaseAdapter {
 
     List<String> songNames;
     List<String> thumbnails;
     List<String> songArtist;
     List<String> songDuration;
     Context context;
+
     public ListAdapter(Context context, List<String> songNames, List<String> thumbnails, List<String> songArtist, List<String> songDuration) {
         this.context = context;
         this.songNames = songNames;
@@ -85,5 +86,6 @@ public class ListAdapter extends BaseAdapter{
         }
     }
 
+    }
 
-}
+
