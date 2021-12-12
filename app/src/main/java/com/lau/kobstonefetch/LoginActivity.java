@@ -78,13 +78,13 @@ public class LoginActivity extends AppCompatActivity {
 
         }
     }
-
+    //Function for clicking on the register button
     public void UserSignup (View view) {
         Intent i1 = new Intent(getApplicationContext(), RegisterActivity.class);
         startActivity(i1);
 
     }
-
+    //Hashing the input to compare with the stored password of the user in the database, same function found in RegisterActivity
     private String encryptPass(String original) {
 
         try {

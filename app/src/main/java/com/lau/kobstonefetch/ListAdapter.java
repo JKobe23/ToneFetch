@@ -14,6 +14,7 @@ import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import androidx.cardview.widget.CardView;
 import java.util.List;
 
+//This is a manual listAdapter class to display the song, pic, artist and duration properly
 public class ListAdapter extends BaseAdapter {
 
     List<String> songNames;
@@ -57,9 +58,7 @@ public class ListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        Transformation transformation = new RoundedTransformationBuilder()
-                .cornerRadiusDp(15)
-                .build();
+        Transformation transformation = new RoundedTransformationBuilder().cornerRadiusDp(15).build();
 
         Picasso.get().load(thumbnails.get(i)).transform(transformation).into(viewHolder.thumbnail);
         viewHolder.songName.setText(songNames.get(i));
@@ -69,6 +68,7 @@ public class ListAdapter extends BaseAdapter {
     }
 
     private static class ViewHolder{
+
         TextView songName;
         TextView artistName;
         TextView songDuration;
@@ -77,6 +77,7 @@ public class ListAdapter extends BaseAdapter {
         ImageView currentlyPlaying;
 
         ViewHolder(View view){
+
             songName = view.findViewById(R.id.songName);
             thumbnail = view.findViewById(R.id.songThumbnail);
             artistName = view.findViewById(R.id.artistName);
@@ -85,7 +86,6 @@ public class ListAdapter extends BaseAdapter {
             currentlyPlaying = view.findViewById(R.id.currentlyPlaying);
         }
     }
-
-    }
+}
 
 

@@ -37,55 +37,45 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseReference dbr = FirebaseDatabase.getInstance().getReferenceFromUrl("https://tonefetch-default-rtdb.firebaseio.com/");
     FirebaseStorage str = FirebaseStorage.getInstance("gs://tonefetch.appspot.com/");
+
     private boolean checkPermission = false;
     ProgressDialog progressDialog;
+
     ListView listView;
     List<String> songsNameList;
     List<String> songsUrlList;
     List<String> songsArtistList;
     List<String> songsDurationList;
     ListAdapter adapter;
+
     JcPlayerView jcPlayerView;
     List<JcAudio> jcAudios;
     List<String> thumbnail;
 
-    private boolean validatePermissions(){
-        Dexter.withContext(getApplicationContext()).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                        checkPermission = true;
-                    }
-                    @Override
-                    public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-                        checkPermission = false;
-                    }
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
-                        permissionToken.continuePermissionRequest();
-                    }
-                }).check();
-
-        return checkPermission;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Loading screen until all the songs are fetched
         progressDialog = new ProgressDialog(this);
         progressDialog.show();
         progressDialog.setMessage("Patience...");
+
         listView = findViewById(R.id.songsList);
         songsNameList = new ArrayList<>();
         songsUrlList = new ArrayList<>();
         songsArtistList = new ArrayList<>();
         songsDurationList = new ArrayList<>();
-        jcAudios = new ArrayList<>();
         thumbnail = new ArrayList<>();
-        jcPlayerView = findViewById(R.id.jcplayer);
-        retrieveSongs();
 
+        jcAudios = new ArrayList<>();
+        jcPlayerView = findViewById(R.id.jcplayer);
+
+        toneFetch();
+
+        //Click function for the songs to stream them
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -97,8 +87,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void retrieveSongs() {
+    public void toneFetch() {
 
+        //Fetching the songs, cover arts, duration from database
         dbr.child("songs").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -106,12 +97,16 @@ public class MainActivity extends AppCompatActivity {
 
                     String name = ds.child("Name").getValue(String.class);
                     //Log.i("songname",name);
+
                     String artist = ds.child("Artist").getValue(String.class);
                     //Log.i("deejay", artist);
+
                     String duration = ds.child("Duration").getValue(String.class);
                     //Log.i("timetaken", duration);
+
                     String songurl = ds.child("SongURL").getValue(String.class);
                     //Log.i("link", songurl);
+
                     String imageurl = ds.child("ImageURL").getValue(String.class);
                     //Log.i("pic", imageurl);
 
@@ -123,12 +118,17 @@ public class MainActivity extends AppCompatActivity {
 
                     jcAudios.add(JcAudio.createFromURL(name, songurl));
                 }
+                //Update the listView and the songs to the player list
                 adapter = new ListAdapter(getApplicationContext(), songsNameList, thumbnail, songsArtistList, songsDurationList);
                 jcPlayerView.initPlaylist(jcAudios, null);
                 listView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+
+                //Remove the loading screen
                 progressDialog.dismiss();
             }
+
+            //In case of some error
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(MainActivity.this, "FAILED!", Toast.LENGTH_SHORT).show();

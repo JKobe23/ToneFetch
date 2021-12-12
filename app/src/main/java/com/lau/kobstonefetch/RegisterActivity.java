@@ -66,13 +66,11 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
+                public void onCancelled(@NonNull DatabaseError error) {}
             });
         }
     }
-
+    //hashing the password to store it in the database
     private String encryptPass(String original) {
 
         try {
