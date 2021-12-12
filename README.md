@@ -1,5 +1,5 @@
 # ToneFetch
-ToneFetch is a music streaming app built using Android Studio and Firebase by Jad Koubaissi :) 
+ToneFetch is an online music streaming app built using Android Studio and Firebase by Jad Koubaissi :) 
 App logo created by myself.
 
 Accessing the app is direct, after cloning and running on Android Studio:
